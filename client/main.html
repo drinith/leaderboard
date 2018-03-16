@@ -27,18 +27,11 @@
 </template>
 
 <template name="addPlayerForm">
-    <form>
-        <input type="text" name="playerName">
-        <input type="submit" value="Add Player">
-        <input type="button" class="remove" value="Remove Player">
-    </form>
-</template>
-
-<template name="addPlayerForm">
     {{#if currentUser}}
     <form>
         <input type="text" name="playerName">
         <input type="submit" value="Add Player">
+        <input type="button" class="remove" value="Remove Player">
     </form>
     {{/if}}
 </template>
