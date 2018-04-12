@@ -12,27 +12,24 @@ Meteor.methods({
             name:playerNameVar,
             score:0,
             createdBy:currentUserId});
-            
             console.log(PlayersList.find().fetch());
             console.log("Inserirou por aqui");
     },
-
     'removePlayerData':function(selectedPlayer){
         PlayersList.remove(selectedPlayer);
         console.log("Deletou o arquivo");
     },
-
     'removeAllPosts': function () {
-
         return PlayersList.remove({});
     },
-
     'removeThis':function(){
         return PlayersList.remove({$where:function (){ return createBy!=""; }});
+    },
+    'modifyPlayerScore': function(selectedPlayer, scoreValue){
+        PlayersList.update(selectedPlayer, {$inc: {score: scoreValue} });
     }
 });
 
 Meteor.startup(() => {
-    
-});
 
+});
