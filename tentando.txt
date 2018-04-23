@@ -1,0 +1,14 @@
+ npm install --global --production windows-build-tools
+
+ meteor run android-device
+
+
+ 99% of Windows issues with Meteor are caused by anti-virus slowing down file operations, as there are A LOT of files involved in node apps.
+
+I’ve added exclusions to Windows Defender for
+
+node.exe
+7z.exe
+choco.exe
+and the meteor folder at C:\Users%USERNAME%\AppData\Local.meteor\
+This speeds up installs, updates, and builds by about 500%

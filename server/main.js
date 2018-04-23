@@ -12,24 +12,42 @@ Meteor.methods({
             name:playerNameVar,
             score:0,
             createdBy:currentUserId});
+            
             console.log(PlayersList.find().fetch());
             console.log("Inserirou por aqui");
     },
+
     'removePlayerData':function(selectedPlayer){
         PlayersList.remove(selectedPlayer);
         console.log("Deletou o arquivo");
     },
+
     'removeAllPosts': function () {
+
         return PlayersList.remove({});
     },
+
     'removeThis':function(){
         return PlayersList.remove({$where:function (){ return createBy!=""; }});
     },
+    'click .increment': function(){
+        var selectedPlayer = Session.get('selectedPlayer');
+        PlayersList.update(selectedPlayer, {$inc: {score: 5} });
+    },
+        'click .decrement': function(){
+        var selectedPlayer = Session.get('selectedPlayer');
+        PlayersList.update(selectedPlayer, {$inc: {score: -5} });
+    },
+
     'modifyPlayerScore': function(selectedPlayer, scoreValue){
-        PlayersList.update(selectedPlayer, {$inc: {score: scoreValue} });
-    }
+        var currentUserId = Meteor.userId();
+        PlayersList.update( {_id: selectedPlayer, createdBy: currentUserId},
+        {$inc: {score: scoreValue} });
+        }
+
 });
 
 Meteor.startup(() => {
-
+    
 });
+
