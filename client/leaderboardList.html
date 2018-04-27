@@ -1,9 +1,9 @@
 <template name="addPlayerForm">
     {{#if currentUser}}
-    <form>
+    <form id="inserir">
         <input type="text" name="playerName">
-        <input type="submit" value="Add Player">
-        <input type="button" class="remove" value="Remove Player">
+        <input type="submit" class="add btn btn-primary" value="Add Player">
+        <input type="button" class="remove btn btn-primary" value="Remove Player">
     </form>
     {{/if}}
 </template>
