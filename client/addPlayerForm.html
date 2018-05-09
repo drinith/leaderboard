@@ -6,11 +6,13 @@
         <li class="player {{selectedClass}}">{{name}}: {{score}}</li>
         {{/each}}
     </ul>
-    {{otherHelperFunction}} 
-    <input type="button" class="increment btn btn-primary" value="Give 5 Points">
-    <input type="button" class="decrement btn btn-primary" value="Remove 5 Points">
+    
+    <div>
+    <input type="button" class="btn_ponto increment btn btn-primary" value="+5">
+    <input type="button" class="btn_ponto decrement btn btn-primary" value="-5">
+    </div>
     <!-- Repare que o texto aqui da lista vai continuar na estrutura da lista de cima  -->
     {{#if showSelectedPlayer}}
-    <li>Selected Player: {{showSelectedPlayer.name}}</li>
+    <p>Selected Player: {{showSelectedPlayer.name}}</p>
     {{/if}}
 </template>
